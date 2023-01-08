@@ -13,13 +13,15 @@ User.init(
     },
     username: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
     },
-    password: {
+    hashedPassword: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [8],
+        is: /^[0-9a-f]{64}$/i
       },
     },
   },
