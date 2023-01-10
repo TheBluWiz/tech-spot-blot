@@ -21,7 +21,6 @@ User.init(
       allowNull: false,
       validate: {
         len: [8],
-        is: /^[0-9a-f]{64}$/i
       },
     },
   },
