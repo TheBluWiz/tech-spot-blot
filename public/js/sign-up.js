@@ -2,17 +2,6 @@ const userEl = document.getElementById("user");
 const passwordEl = document.getElementById("password")
 const signUpSubmitEl = document.getElementById("signUpSubmit")
 
-async function postData(url, data) {
-  console.log(data)
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-}
-
 signUpSubmitEl.addEventListener("click", (event) => {
   event.preventDefault();
   let loginAttempt = {
