@@ -20,8 +20,10 @@ loginSubmitEl.addEventListener("click", (event) => {
     password: passwordEl.value,
   }
   postData('http://localhost:3001/api/login/', loginAttempt)
-    .then((data) => {
-      console.log(data);
+    .then((response) => {
+      console.log(response)
+      if (response.ok) document.location.replace('/dashboard')
+      else alert("Not OK")
     })
     .catch((err) => {
       console.log(`Post Failed:

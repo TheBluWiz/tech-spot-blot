@@ -4,7 +4,10 @@ const loginRoutes = require('./login');
 const dashboardRoutes = require('./dashboard')
 
 router.get('/', async (req, res) => {
-  res.render('home')
+  const user = {
+    username: req.session.username
+  }
+  res.render('home', { user })
 })
 
 router.use('/api', apiRoutes);

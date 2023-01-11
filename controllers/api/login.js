@@ -4,29 +4,30 @@ const bcrypt = require('bcrypt');
 
 router.post('/', async (req, res) => {
   console.log(`Attempting POST:\n`)
-  try{
-    requestedUser = await User.findOne({
+  try {
+    const requestedUser = await User.findOne({
       where: {
-        username: req.body.user
-      }
+        username: req.body.user.trim()
+      },
     })
-    try {
-      await bcrypt.compare(req.body.password, requestedUser.hashedPassword, (err, isValid) => {
-        if (isValid) {
-          console.log("They match!!")
-          req.session.login = true;
-          req.session.username = req.body.user;
-          res.status(200).json({ message: "Login Successful" });
-        }
-        else res.status(400).json({ message: "Incorrect Password"})
-      })
+    if (!requestedUser) {
+      res.status(400).json({ message: "No user found" })
+      return
     }
-    catch (err) {
-      res.status(500).json(err)
+    const validUser = requestedUser.checkPassword(req.body.password)
+    if (!validUser) {
+      res.status(400).json({ message: "Incorrect Password" })
     }
+    req.session.save(() => {
+      req.session.login = true;
+      req.session.username = req.body.user.trim();
+      // Potentially include user.id
+      res.status(200);
+    })
   }
-  catch {
-    res.status(404).json({ message: "User not found"})
+  catch (err) {
+    console.log(err)
+    res.status(404).json(err)
   }
 })
 
@@ -35,23 +36,23 @@ router.post('/sign-up', async (req, res) => {
     console.log(req.body);
     let userUnique = await User.findOne({
       where: {
-        username: req.body.user
+        username: req.body.user.trim()
       },
     })
-    console.log(userUnique)
     if (userUnique === null) {
       console.log("Creating Unique User")
       const newUser = {
-        username: req.body.user.trim()
+        username: req.body.user.trim(),
+        password: req.body.password
       };
-      newUser.hashedPassword = await bcrypt.hash(req.body.password, 10);
-      console.log(newUser)
       try {
         const userData = await User.create(newUser);
         console.log(userData)
-        req.session.login = true;
-        req.session.username = newUser.username;
-        res.status(200).json({ message: "Login Successful" })
+        req.session.save(() => {
+          req.session.login = true;
+          req.session.username = newUser.username;
+          res.status(200).json({ message: "Login Successful" });
+        })
       }
       catch (err) {
         console.log(`User creation failed:\n\n`)
