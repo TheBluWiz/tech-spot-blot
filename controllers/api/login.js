@@ -11,23 +11,22 @@ router.post('/', async (req, res) => {
       },
     })
     if (!requestedUser) {
-      res.status(400).json({ message: "No user found" })
-      return
+      return res.status(400).json({ message: "No user found" })
     }
     const validUser = requestedUser.checkPassword(req.body.password)
     if (!validUser) {
-      res.status(400).json({ message: "Incorrect Password" })
+      return res.status(400).json({ message: "Incorrect Password" })
     }
     req.session.save(() => {
       req.session.login = true;
       req.session.username = req.body.user.trim();
       // Potentially include user.id
-      res.status(200);
+      return res.status(200).json({ message: "Log In Successful"});
     })
   }
   catch (err) {
     console.log(err)
-    res.status(404).json(err)
+    return res.status(404).json(err)
   }
 })
 

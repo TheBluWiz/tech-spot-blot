@@ -22,7 +22,7 @@ loginSubmitEl.addEventListener("click", (event) => {
   postData('http://localhost:3001/api/login/', loginAttempt)
     .then((response) => {
       console.log(response)
-      if (response.ok) document.location.replace('/dashboard')
+      if (response.message) document.location.replace('/dashboard')
       else alert("Not OK")
     })
     .catch((err) => {
