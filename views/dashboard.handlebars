@@ -1,4 +1,13 @@
-<p>Welcome to your dashboard {{user.username}}!</p>
+<h2>Welcome to your Dashboard {{user.username}}!</h2>
+<div>
+  <h3>Have a new blot?</h3>
+  <form action="/api/leave-comment">
+    <input type="text" id="title" placeholder="Title">
+    <textarea id="comment" rows="4" cols="60" placeholder="Your thoughts here!"></textarea>
+    <button type="submit" id="submitComment">Post It!</button>
+  </form>
+</div>
+
 {{#each blog}}
 {{> blog-card}}
 {{/each}}

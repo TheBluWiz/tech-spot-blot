@@ -11,8 +11,8 @@ loginSubmitEl.addEventListener("click", (event) => {
   postData('http://localhost:3001/api/login/', loginAttempt)
     .then((response) => {
       console.log(response)
-      if (response.message) document.location.replace('/dashboard')
-      else alert("Not OK")
+      if (response.ok) document.location.replace('/')
+      else alert("Error Signing In")
     })
     .catch((err) => {
       console.log(`Post Failed:

@@ -9,8 +9,10 @@ signUpSubmitEl.addEventListener("click", (event) => {
     password: passwordEl.value,
   }
   postData('http://localhost:3001/api/login/sign-up', loginAttempt)
-    .then((data) => {
-      console.log(data)
+     .then((response) => {
+      console.log(response)
+      if (response.ok) document.location.replace('/')
+      else alert("Error Signing In")
     })
     .catch((err) => {
       console.log(`Post Failed:
