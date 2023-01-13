@@ -4,4 +4,6 @@ const dashboardControl = require('./dashboard')
 
 router.use('/login', apiLogin)
 
+router.use('/dashboard', dashboardControl)
+
 module.exports = router;

@@ -15,6 +15,10 @@ BlogPost.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    content: {
+      type: DataTypes.STRING,
+      allowNull: false, 
+    },
     userID: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -24,7 +28,7 @@ BlogPost.init(
     sequelize,
     timestamps: true,
     freezeTableName: true,
-    underscored: true,
+    underscored: false,
     modelName: 'BlogPost',
   }
 )
