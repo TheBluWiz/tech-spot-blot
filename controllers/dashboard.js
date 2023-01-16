@@ -2,10 +2,11 @@ const router = require('express').Router();
 const withAuth = require('../Utils/helpers')
 
 router.get('/', withAuth, async (req, res) => {
-  const user = {
+  const data = {
     username: req.session.username
   }
-  res.render('dashboard', { user })
+  console.log(data)
+  res.render('dashboard', { data })
 });
 
 module.exports = router;

@@ -2,6 +2,9 @@
   <p>This is the homepage.</p>
 </body>
 
-{{#each blogpost}}
-{{> blog-card}}
+{{#each data.blogPost}}
+<div>
+  <p>{{title}}</p>
+  <p>{{User.username}}</p>
+</div>
 {{/each}}

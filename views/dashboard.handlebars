@@ -1,4 +1,4 @@
-<h2>Welcome to your Dashboard {{user.username}}!</h2>
+<h2>Welcome to your Dashboard {{data.username}}!</h2>
 <div>
   <h3>Have a new blot?</h3>
   <form>
@@ -8,7 +8,10 @@
   </form>
 </div>
 
-{{#each blog}}
-{{> blog-card}}
+{{#each blogPost}}
+<div>
+  <p>{{title}}</p>
+  <p>{{User.username}}</p>
+</div>
 {{/each}}
 <script src="/js/dashboard.js"></script>
