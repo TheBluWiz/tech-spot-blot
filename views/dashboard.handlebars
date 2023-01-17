@@ -1,17 +1,7 @@
 <h2>Welcome to your Dashboard {{data.username}}!</h2>
-<div>
-  <h3>Have a new blot?</h3>
-  <form>
-    <input type="text" id="title" placeholder="Title">
-    <textarea id="blogPost" rows="4" cols="60" placeholder="Your thoughts here!"></textarea>
-    <button type="submit" id="postIt">Post It!</button>
-  </form>
-</div>
-
-{{#each blogPost}}
-<div>
-  <p>{{title}}</p>
-  <p>{{User.username}}</p>
-</div>
+{{#each data.blogPost}}
+{{> blogPosts}}
 {{/each}}
+
+
 <script src="/js/dashboard.js"></script>

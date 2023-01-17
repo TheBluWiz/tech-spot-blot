@@ -1,0 +1,98 @@
+:root {
+  --blue-Black: rgb(13, 19, 33);
+  --deep-Navy: rgb(29,45, 68);
+  --middle-Blue: rgb(62, 92, 118);
+  --light-Blue: rgb(116, 140, 171);
+  --cream: rgb(240, 235, 216);
+}
+
+* {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--cream);
+}
+
+header {
+  padding-top: 10px;
+  background-color: var(--deep-Navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  color: var(--blue-Black);
+  font-size: 2rem;
+  background-color: var(--cream);
+  width: fit-content;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 2px 2px;
+}
+nav {
+  color: var(--light-Blue);
+  background-color: var(--deep-Navy);
+  padding: 1rem;
+}
+a {
+  text-decoration: none;
+}
+nav a {
+  color: var(--light-Blue);
+  background-color: var(--deep-Navy);
+  margin: 10px;
+}
+nav a:hover {
+  color: var(--cream);
+}
+
+main {
+  width: 85%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.blogCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px;
+  border-style: solid;
+  border-color: var(--deep-Navy);
+  margin: 1rem auto;
+  height:fit-content;
+}
+
+.blogHeader {
+  display: flex;
+  /* align-items: space-between; */
+  justify-content: space-between;
+  /* align-content: space-between; */
+  width: 100%;
+  background-color: var(--deep-Navy);
+}
+
+.blogHeader p {
+  background-color: var(--deep-Navy);
+  color: var(--cream);
+  margin: 0 1rem;
+}
+
+.blogHeader pre {
+  font-size: .8rem;
+  align-self: center;
+  background-color: var(--deep-Navy);
+  color: var(--cream);
+  margin: 0 1rem;
+}
+
+.blogContent {
+  border: 1px;
+  border-color: var(--deep-Navy);
+  background-color: var(--cream);
+}
+
+.blogContent p {
+  background-color: var(--cream);
+}

@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/styles.css">
   <script src="/js/helpers.js"></script>
   <title>The Blot</title>
@@ -13,17 +14,19 @@
 <body>
   <header>
     <h1>Tech Spot Blots</h1>
+    <nav>
+      <a href="/">Home Page</a>
+      <a href="/Dashboard">Dashboard</a>
+      {{#if data.username}}
+      <a href="/login/logout">Logout</a>
+      {{else}}
+      <a href="/login">Login</a>
+      {{/if}}
+    </nav>
   </header>
-  <nav>
-    <a href="/">Home Page</a>
-    <a href="/Dashboard">Dashboard</a>
-    {{#if data.username}}
-    <a href="/login/logout">Logout</a>
-    {{else}}
-    <a href="/login">Login</a>
-    {{/if}}
-  </nav>
-  {{{body}}}
+  <main>
+    {{{body}}}
+  </main>
 </body>
 
 </html>
