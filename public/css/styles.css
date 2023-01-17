@@ -62,6 +62,7 @@ main {
   border-color: var(--deep-Navy);
   margin: 1rem auto;
   height:fit-content;
+  max-width: 900px;
 }
 
 .blogHeader {
@@ -89,10 +90,20 @@ main {
 
 .blogContent {
   border: 1px;
+  color: var(--blue-Black);
   border-color: var(--deep-Navy);
   background-color: var(--cream);
 }
 
 .blogContent p {
   background-color: var(--cream);
+  margin: 0 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.revealed {
+  display: block;
 }

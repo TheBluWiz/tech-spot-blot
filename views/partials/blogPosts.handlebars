@@ -1,8 +1,8 @@
-<a href="http://localhost:3001/blot/${id}">
+<a href="http://localhost:3001/blot/{{id}}">
   <div class="blogCard">
     <div class="blogHeader">
       <p>{{title}}</p>
-      <pre>{{User.username}}</pre>
+      <pre>Posted by {{User.username}} on {{createdAt}}</pre>
     </div>
     <div class="blogContent">
       <p>{{content}}</p>

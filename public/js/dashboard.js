@@ -15,6 +15,6 @@ postItEl.addEventListener('click', (event) => {
     // document.location.replace('http://localhost:3001/dashboard');
   })
   .catch((err) => {
-    
+    console.log(err)
   })
 })

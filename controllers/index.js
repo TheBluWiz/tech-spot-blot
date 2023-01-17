@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { withAuth } = require('../Utils/helpers')
 
 const apiRoutes = require("./api");
 const loginRoutes = require("./login");
@@ -20,6 +21,16 @@ router.get("/", async (req, res) => {
   console.log(data);
   res.render("home", { data });
 });
+
+// router.get("/blot/:id", withAuth, async (req, res) => {
+//   const blogPostData = await BlogPost.findOne({
+//     where: {
+//       id: req.params.id
+//     }
+//   })
+//   const blogPost = blogPostData.map((blot) => blot.get({ plain: true }));
+//   res.render("blot", { blogPost })
+// })
 
 router.use("/api", apiRoutes);
 router.use("/login", loginRoutes);
