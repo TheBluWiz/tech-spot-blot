@@ -8,7 +8,7 @@ loginSubmitEl.addEventListener("click", (event) => {
     user: userEl.value,
     password: passwordEl.value,
   }
-  postData('http://localhost:3001/api/login/', loginAttempt)
+  postData('/api/login/', loginAttempt)
     .then((response) => {
       console.log(response)
       if (response.ok) document.location.replace('/')

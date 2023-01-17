@@ -8,11 +8,11 @@ postItEl.addEventListener('click', (event) => {
     title: titelEl.value,
     content: blogPostEl.value
   }
-  postData('http://localhost:3001/api/dashboard', blogPost)
+  postData('/api/dashboard', blogPost)
   .then((response) => {
     console.log('It sent!')
     console.log(response)
-    // document.location.replace('http://localhost:3001/dashboard');
+    document.location.replace('/dashboard');
   })
   .catch((err) => {
     console.log(err)
