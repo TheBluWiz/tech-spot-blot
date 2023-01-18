@@ -8,7 +8,7 @@ const BlogPost = require('./BlogPost');
 
 BlogPost.belongsTo(User, {
   foreignKey: 'userID',
-  onDelete: 'Cascade'
+  onDelete: 'CASCADE'
 })
 
 module.exports = { User, BlogPost};
