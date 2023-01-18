@@ -12,4 +12,3 @@ BlogPost.belongsTo(User, {
 })
 
 module.exports = { User, BlogPost};
-
